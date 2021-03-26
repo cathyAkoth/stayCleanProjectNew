@@ -1,0 +1,78 @@
+extends layout
+block content
+  head
+    
+    title register employee
+    
+
+
+  body
+    .header
+      h1
+        | STAY CLEAN-
+        i THE CLEANEST OPTION
+   
+  .container-fluid
+    .row
+        .col-4 
+        
+        
+                
+        .col-5
+          fieldset
+            legend  EMPLOYEE REGISTRATON/SIGN UP
+
+              form(method='POST',action='/employee/employeeReg', name='employeeRegForm',enctype="multipart/form-data")
+                label(for='fname') First Name
+                |         
+                input#fname(type='text', name='firstname', placeholder=" First Name")
+
+                
+                |     
+                br|         
+                label(for='lname') last Name
+                |         
+                input#lname(type='text', name='lastname', placeholder="last Name")
+                |     
+                |         
+                label(for='gender') Gender
+                |         
+                select#gender(name='gender',placeholder="select gender")
+                  option(value='')
+                  |  
+                  |         
+                  option(value='Female') Female
+                  |         
+                  option(value='Male') Male
+
+                label(for='age') Age
+
+                input#age(type='number', name=age, placeholder="age")
+              
+                label(for='nin') NIN
+
+                input#age(type='string', name=nin, placeholder="nin")|         
+                label(for='date') Date of birth
+                |         
+                input#date(type='date', name='date', placeholder='date of birth')
+                |     
+                label(for='telephoneNo') phone Number
+                |         
+                input#telephoneNo1(type='string', name='telephoneNo')
+
+                label(for='userName') UserName
+                input#user1(type ='string', name = 'userName',placeholder='uaer Name') 
+
+                label(for = 'password') Password
+                input#password(type="password",name = 'password',placeholder='password')  
+
+                label(for='image') Image
+                input#image(type='file',name='image')    
+                
+                input(type='submit', value='REGISTER')
+
+            .col-3     
+            
+            
+
+              
