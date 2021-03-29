@@ -11,37 +11,33 @@ const employeeSchema = new mongoose.Schema({
     required: 'please fill in',
   },
   gender:{
-      type: string,
+      type: String,
       required:'please select',
   },
-  age:{
-      type: number,
+  nin:{
+    type: String,
+    unique: true,
+    require: 'please enter nin'
+  },
+  date:{
+      type: String,
       required: 'please fill in',
   },
-  nin:{
-      type: string,
-      unique: true,
-      required: 'fill in',
-  },
-  dateOfBirth:{
-      type: date,
-      require: 'please fill in',
-  },
-  phoneNumber:{
-      type: string,
+  telephoneNo:{
+      type: String,
       required: 'please fill in',
   },
   userName: {
-      type: string,
+      type: String,
       required: 'please fill in',
 
   },
   password: {
-      type: password,
+      type: String,
       required: 'input password'
   },
-  image: string,
-  role: string,
+  image: String,
+  role: String,
 });
 
 // Export mongoose model.
