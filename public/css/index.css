@@ -9,7 +9,7 @@ body{
       background-color: #45a049;    
       text-align: center; 
       color:beige;
-      font-size: 25px;
+      font-size: "25px";
       height: 80px;
       }
       #signInLabel{
