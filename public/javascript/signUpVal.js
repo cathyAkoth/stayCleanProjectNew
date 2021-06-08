@@ -128,7 +128,7 @@ const reg6 = /[STC][0-9]{4}/
  */
 const passwordFunction = () => {
 
-  const min4 = 8;
+  const min4 =8;
   const max4 = 15;
   const reg5 = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]$/
 
@@ -145,7 +145,7 @@ password.style.border = '2px solid red';
   event.preventDefault ();
   } else {
 if(password.value > max4){
-pass2.textContent = ' password can not be more than 15 characters!';
+pass2.textContent =" ' password can not be more than 15 characters!'";
 password.style.border = '2px solid red';
   password.focus();
   event.preventDefault ();
