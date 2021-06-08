@@ -1,0 +1,96 @@
+extends layout
+block content         
+
+
+  title conductor registration.
+  link(rel='stylesheet', href='/css/pugLIST.css')
+  
+  body
+
+
+    
+    .main-content
+      header
+        h2
+          .header-title
+            label(for='')
+              span.las.la-bars
+            |                 STAY CLEAN
+        |                 
+        
+      
+    .recent-grid
+      .Projects
+        .card
+          .card-header
+
+            a.btn.btn-warning(href='/request', role='button') 
+                  span.las.la-arrow-left
+                   | 
+                
+            h3 CONDUCTOR LIST
+            |                         
+            form.example(action='/')
+                  input(type='text', placeholder='Search.date.', date='date')
+                  |   
+                  button(type='submit')
+                    i.fa.fa-search
+            
+            
+            a.btn.btn-warning(href='/conductorReg', role='button') 
+                    span.las.la-users
+                    |
+                  
+                
+            
+            
+              
+          |                   
+          .card-body
+
+          
+          table
+          table.table.table-hover
+            thead
+                    
+            
+      
+              tr
+                  th l name
+                  th f name
+                  th gender
+                  th D.O.B
+                  th age
+                  th NIN
+                  th tel
+                  th residence
+                  th
+                  th 
+                   
+                  
+                  
+
+            tbody
+              if users.length
+              each user in users
+                  tr
+                      td #{user.lastname}
+                      td #{user.firstname}
+                      td #{user.gender}
+                      td #{user.date}
+                      td #{user.age}
+                      td #{user.nin}
+                      td #{user.phone}
+                      td #{user.cresidence}
+                      
+                      
+                      td
+                              a(href='/update/'+user._id)
+                                span.icon 
+                                  i.las.la-edit 
+                      td
+                          form(method="post" action='/delete')
+                              input(type="hidden", placeholder="", name="id", value=user._id)
+                              button.btn.btn-success.btn-block(type="submit") Delete
+
+              

@@ -1,0 +1,86 @@
+extends layout
+block content         
+
+
+  title driverPaymentList.
+  link(rel='stylesheet', href='/css/pugLIST.css')
+  
+  body
+
+
+    
+    .main-content
+      header
+        h2
+          .header-title
+            label(for='')
+              span.las.la-bars
+            |                 STAY CLEAN
+        |                 
+        
+      
+    .recent-grid
+      .Projects
+        .card
+          .card-header
+
+           a.btn.btn-warning(href='/request', role='button') 
+                  span.las.la-arrow-left
+                   | 
+           h3 DRIVER PAYMENT LIST
+                                    
+           form.example(action='/driverPayment')
+                      input(type='text', placeholder='Search.date', date='date')
+                      |   
+                      button(type='submit')
+                        i.fa.fa-search
+                
+            
+           a.btn.btn-warning(href='/driverPayment/driverPayment', role='button') 
+                          span.las.la-wallet
+            
+              
+          |                   
+          .card-body
+
+          
+          table
+          table.table.table-hover
+            thead
+                    
+            
+      
+              tr
+                  th Date Of Payment
+                  th Drivers' Name
+                  th Daily Wage
+                  th Days Worked
+                  th Total Amount
+                  th
+                  th 
+                   
+                  
+                  
+
+            tbody
+              if users.length
+              each user in users
+                  tr
+                      td #{user.date}
+                      td #{user.driverName}
+                      td #{user.wage}
+                      td #{user.days}
+                      td #{user.results}
+                     
+                      
+                      
+                      td
+                              a(href='/driverPayment/update/'+user._id)
+                                span.icon 
+                                  i.las.la-edit 
+                      td
+                          form(method="post" action='/driverPayment/delete')
+                              input(type="hidden", placeholder="", name="id", value=user._id)
+                              button.btn.btn-success.btn-block(type="submit") Delete
+
+              

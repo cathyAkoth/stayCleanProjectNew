@@ -1,0 +1,91 @@
+extends layout
+block content         
+
+
+  title stay clean
+
+  link(rel='stylesheet', href='/css/driverList.css')
+
+
+  body
+
+
+    
+    .main-content
+      header
+        h2
+          .header-title
+            label(for='')
+              
+            |                 STAY CLEAN
+        |                 
+        
+      
+    .recent-grid
+      .Projects
+        .card
+          .card-header
+            
+            a.btn.btn-warning(href='/request', role='button') 
+                  span.las.la-arrow-left
+                   
+            h3 Driver list.
+                                   
+            form.example(action='/driver')
+              input(type='text', placeholder='Search..', name='lastname')
+              |   
+              button(type='submit')
+                i.fa.fa-search
+            
+            
+            a.btn.btn-warning(href='/driver/driverReg', role='button') 
+              span.las.la-user
+                
+              |
+            
+              
+          |                   
+          .card-body
+
+          
+          table
+          table.table.table-hover
+            thead
+                    
+            
+      
+              tr
+                  th Last Name
+                  th First Name
+                  th Gender
+                  th Age
+                  th D.O.B
+                  th TelNo.
+                  th NIN
+                  th Residence
+                  th Incidence
+                  
+
+            tbody
+              if users.length
+              each user in users
+                  tr
+                      td #{user.lastname}
+                      td #{user.firstname}
+                      td #{user.gender}
+                      td #{user.age}
+                      td #{user.date}
+                      td #{user.telephoneNo}
+                      td #{user.nin}
+                      td #{user.dresidence}
+                      td #{user.pincidences}
+                      td
+                              a(href='/driver/update/'+user._id)
+                                span.icon 
+                                  i.las.la-edit 
+                      td
+                          form(method="post" action='/driver/delete')
+                              input(type="hidden", placeholder="", name="id", value=user._id)
+                              button.btn.btn-success.btn-block(type="submit") Delete
+
+                    

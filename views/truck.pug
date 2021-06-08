@@ -1,0 +1,80 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    |     
+    meta(name='viewpoint', content='=*width=device-width, initial-scale=1.0*')
+    |     
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(rel='shortcut icon', type='image/png', href='/public/images/favicon.png')
+    |     
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl', crossorigin='anonymous')
+    title register truck drivers
+    link(rel='stylesheet', href='/css/pugForm.css')
+
+      
+  body
+  .main-content
+      header
+        h2
+          .header-title
+            img#logoArea(src="/images/signage2.png")
+            label(for='')
+             
+            |                 STAY CLEAN-garbage and sewage management system
+  body
+    
+    br
+    br
+    br
+    br
+    .container-fluid
+      .row
+        .col-3
+          
+         
+        .col-5
+          .card 
+            h5 TRUCK REGISTRATION FORM
+            .card-body 
+            
+              form(method='POST',action='/truck/truckReg', name='truckRegForm')
+
+                label(for='regNumber') REGISTRATION NUMBER
+                |         
+                input#regNumber(type='string', name='regNumber', placeholder="reg No.")
+                p.regNumber_info.warnP     
+                |         
+                label(for='codeNumber') TRUCK CODE NUMBER
+                |         
+                input#codeNumber(type='string', name='codeNumber', placeholder="code No. ")
+                p.codeNumber_info.warnP
+                
+                |     
+                label(for='truckService') TYPE OF TRUCK
+                select#truckService(name='truckService')
+                    option(value='')
+
+                    option(value='sewage') Sewage Truck
+                                  
+                    option(value='garbage') Garbage Truck  
+                p.truckService_info.warnP
+                
+
+                label(for='driver') Allocate Driver 
+                          select#driver(name='driver')
+                            option() choose driver 
+                              // if any truck recorded in database.
+                            if driverReg.length 
+                            // iterating through truck./looping.
+                            each person in driverReg 
+                                option(value=`${person.lastname} ${person.firstname}`) #{person.lastname}
+                p.driver_info.warnP
+                
+                
+                input(type='submit', value='Register Truck')
+
+           
+              
+            script(src='/javascript/truckVal.js')   
+            script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js', integrity='sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0', crossorigin='anonymous')

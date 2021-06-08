@@ -1,0 +1,42 @@
+ table
+                  thead
+                          
+                  
+            
+                    tr
+                        th Full Name 
+                        th NIN
+                        th Gender
+                        th Age
+                        th DOB
+                        th phone
+                        th userName 
+                        th password
+                        th Role
+                        th Image 
+                        th UPDATE
+                        th DELETE
+
+                  tbody
+                    if users.length
+                    each user in users
+                        tr
+                            td #{user.lastname +' '+ user.firstname}
+                            td #{user.nin}
+                            td #{user.gender}
+                            td #{user.age}
+                            td #{user.date}
+                            td #{user.telephoneNo}
+                            td #{user.userName}
+                            td #{user.password}
+                            td #{user.role}
+                            th #{user.image}
+                            td
+                                a(href='/employee/update/'+user._id) Update 
+                            td
+                                form(method="post" action='/employee/delete')
+                                    input(type="hidden", placeholder="", name="id", value=user._id)
+                                    button.btn.btn-success.btn-block(type="submit") Delete
+
+                             
+        .col-2

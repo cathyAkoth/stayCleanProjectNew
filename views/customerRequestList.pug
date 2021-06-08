@@ -1,0 +1,278 @@
+extends layout
+block content
+    
+  link(rel='stylesheet', href='/css/style1.css')
+  style.
+    * {
+        box-sizing: border-box;
+      }
+
+      /* Style the search field */
+      form.example input[type=text] {
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid grey;
+        /*float: center;*/
+        width: 60%;
+        left:20%;
+        right:40%;
+        background: #f1f1f1;
+
+      }
+
+      /* Style the submit button */
+      form.example button {
+        float: left;
+        width: 10%;
+        padding: 15px;
+        background: orange;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none; /* Prevent double borders */
+        cursor: pointer;
+        border-radius:2px;
+      }
+
+      form.example button:hover {
+        background: orangeRed;
+      }
+
+      i.las{
+     font-size:30px;
+     color:green;
+      }
+
+      i.fa{
+       color:#14A098; 
+      }
+
+      span.las{
+      font-size:30px;
+      color:green;
+      }
+
+      /* Clear floats */
+      form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+      body{
+        background:#EDEAE5;
+      }
+      a.btn.btn-warning{
+        width:20%;
+        float: right;
+      }
+    
+  body
+    
+  
+    .navigation
+      ul
+        li
+          a(href='/request')
+            span.icon
+              i.fa.fa-home(aria-hidden='true')
+            |                     
+            span.title Home
+        |             
+        |         
+        li
+          a(href='driver')
+            span.icon
+              i.fa.fa-user-plus(aria-hidden='true')
+            |                     
+            span.title Drivers
+        |             
+        |         
+        
+        |         
+        li
+          a(href='/employee')
+            span.icon
+              i.fa.fa-users(aria-hidden='true')
+            |                     
+            span.title Employees
+        |             
+        |         
+       
+        |             
+        |         
+        li
+          a(href='/truck')
+            span.icon
+              i.fa.fa-truck(aria-hidden='true')
+            |                     
+            span.title Trucks
+        |             
+        |         
+        li
+          a(href='/')
+            span.icon
+              i.fa.fa-users(aria-hidden='true')
+            |                     
+            span.title
+              |conductors
+              
+
+          li
+            a(href='/signUp')
+              span.icon
+              i.fa.fa-clipboard(aria-hidden='true')
+              span.title 
+               |Sign Up                   
+            
+              
+        
+    .toggle(onclick='toggleMenu()')
+    |
+    //Javascript to make the navigation able to toggle.         
+    script(type='text/javascript').
+      function toggleMenu(){
+      let navigation = document.querySelector('.navigation');
+      let toggle = document.querySelector('.toggle');
+      navigation.classList.toggle('active');
+      toggle.classList.toggle('active');
+      }
+    .main-content
+      header
+        h2
+          .header-title
+            label(for='')
+              
+            |                 STAY CLEAN Garbage and Sewage Management system.
+        |                 
+        
+      main
+        .cards
+          .card-single
+            div
+              h1 
+              |                          
+              span Conductor Payment.
+            |                      
+            div
+              
+              a(href='/conductorPayment')
+               span.icon 
+                
+                  span.las.la-shopping-bag(aria-hidden='true')
+              
+              
+          |                 
+          |                     
+          .card-single
+            div
+              h1 
+              span Driver Payment.
+            div|                             
+              a(href='/driverPayment')
+               span.icon 
+                
+                  span.las.la-wallet(aria-hidden='true')
+          |                     
+          .card-single
+            div
+              h1 
+              span Truck Payment.
+            div                 
+              a(href='/truckPayment')
+               span.icon 
+                
+                  span.las.la-wallet(aria-hidden='true')
+
+          .card-single
+            div
+              h1 
+              |                             
+              span Services Earnings
+            |                         
+            div
+              span.las.la-shopping-bag
+          |                    
+          .card-single
+            div
+              h1 
+              span Employee List
+            div                 
+              a(href='/employee')
+               span.icon 
+                
+                  span.las.la-users(aria-hidden='true')
+        |        
+        .recent-grid
+          .Projects
+            .card
+              .card-header
+                h3 Customer Requests.
+                |
+
+
+                form.example(action='/request')
+                  input(type='text', placeholder='Search..', name='dor')
+                  |   
+                  button(type='submit')
+                    i.fa.fa-search                         
+                
+                  a.btn.btn-warning(href='/request/customerRequest', role='button') 
+                    span.las.la-phone
+                    |Add Request
+                  
+                
+                  
+              |                   
+              .card-body
+                table(width='100%')
+                  thead
+                    tr
+                      th full name
+                      |                                     
+                      th NIN
+                      |                                     
+                      th Service
+                      |                                     
+                      th No. trucks
+
+                      th truck 
+
+                      th truck1
+                      |                                     
+                      //- th Service date
+                      //- |                                     
+                      //- th Location
+                      //- |                                     
+                      //- th Service time
+                      //- |                                     
+                      //- th PhoneNo.
+                      |                                     
+                      
+                      th 
+                      th
+                  |                             
+                  tbody.table.table-hover
+                    if users.length
+                            each user in users
+                              tr 
+                                td #{user.fname +' '+ user.lname}
+                                td #{user.nin}
+                                td #{user.service}
+                                td #{user.noTrucks}
+                                td #{user.truck}
+                                td #{user.truck1}
+                                //- td #{user.dor}
+                                //- td #{user.location}
+                                //- td #{user.appt}
+                                //- td #{user.phone}
+                                //- td #{user.tor}
+                                     td #{car.truck}
+                                td 
+                                    a(href='/request/update/'+user._id) Update 
+                                td
+                                    form(method="post" action='/request/delete')
+                                        input(type="hidden", placeholder="", name="id", value=user._id)
+                                        button.btn.btn-success.btn-block(type="submit") Delete
+
+
+          

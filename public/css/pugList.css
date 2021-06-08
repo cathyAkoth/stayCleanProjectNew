@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+  }
+
+  /* Style the search field */
+  form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    /*float: center;*/
+    width: 80%;
+    left:20%;
+    right:20%;
+    background: #f1f1f1;
+  }
+
+  /* Style the submit button */
+  form.example button {
+    float: right;
+    width: 20%;
+    padding: 15px;
+    background: orange;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+    border-radius:2px;
+  }
+
+  form.example button:hover {
+    background: orangeRed;
+  }
+
+  i.las{
+ font-size:30px;
+ color:green;
+  }
+
+  i.fa{
+   color:green; 
+  }
+
+  span.las{
+  font-size:30px;
+  color:green;
+  }
+
+  /* Clear floats */
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  body{
+    background:green;
+  }
+
+  header{
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  position: fixed;
+  left: 0;
+  width: 100%;
+  top:0;
+  z-index: 100;
+  transition: left 300ms;
+  color:green
+  }
+  #nav-toggle{
+  display:none;
+  }
+  header h2{
+  color: green;
+  }
+
+  header label span{
+  font-size: 1.7rem;
+  padding-right: 1rem;
+
+    }
+  .card{
+    width:80%;
+    left:10%;
+    right:10%;
+    top: 10%;
+    
+
+
+  }
+  .table{
+    width:80%;
+    left:20%;
+    right:20%;
+    top:10%;
+
+  }

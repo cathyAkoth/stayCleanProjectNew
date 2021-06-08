@@ -4,41 +4,48 @@ const mongoose = require('mongoose');
 const employeeSchema = new mongoose.Schema({
   firstname: {
     type: String,
-    required: 'please fill in',
+    //required: 'please fill in',
   },
   lastname: {
     type: String,
-    required: 'please fill in',
-  },
-  gender:{
-      type: String,
-      required:'please select',
+    //required: 'please fill in',
   },
   nin:{
+      type: String,
+      unique: true,
+      //required:'please select',
+  },
+  gender:{
     type: String,
-    unique: true,
-    require: 'please enter nin'
+    //required: 'please enter service'
+  },
+  age:{
+    type: String,
+    //required: 'please fill in',
   },
   date:{
       type: String,
-      required: 'please fill in',
+      //required: 'please fill in',
   },
   telephoneNo:{
-      type: String,
-      required: 'please fill in',
+    type: String,
+    //required:'please select',
   },
-  userName: {
-      type: String,
-      required: 'please fill in',
+  userName:{
+  type: String,
+  //require: 'please enter '
+  },
+  role:{
+    type: String,
+    //required: 'please fill in',
+},
+image:{
+  type: String,
+  //required:'please select',
+},
 
-  },
-  password: {
-      type: String,
-      required: 'input password'
-  },
-  image: String,
-  role: String,
-});
 
+  
+})
 // Export mongoose model.
-module.exports = mongoose.model('Employee', employeeSchema);
+module.exports = mongoose.model('Employee', employeeSchema)

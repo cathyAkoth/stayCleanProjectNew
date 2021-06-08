@@ -1,0 +1,94 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    |     
+    meta(name='viewpoint', content='=*width=device-width, initial-scale=1.0*')
+    |     
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(rel='shortcut icon', type='image/png', href='/public/images/favicon.png')
+        
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl', crossorigin='anonymous')
+    title driver payment
+    link(rel='stylesheet',href='/css/pugForm.css') 
+      
+  body
+  .main-content
+      header
+        h2
+          .header-title
+            img#logoArea(src="/images/signage2.png")
+            label(for='')
+             
+            |                 STAY CLEAN
+  body
+    
+    br
+    br
+    br
+    br
+    .container-fluid
+      .row
+        .col-3
+          
+         
+        .col-5
+          .card 
+            h5 Driver's wage payment form
+            .card-body 
+            
+              form.row.g-3(method='POST', action='/driverPayment/driverPayment', name='driverPaymentForm')
+                  #fulldiv
+                    p 
+                    |                     
+                    p
+                      |Date of Payment:
+                      input#date(type='date', name='date')
+                    |                     
+                    |         
+                    p
+                    p
+                      label(for='driver') Driver Name:
+                          select#driverName(name='driverName')
+                            option() choose driver 
+                              // if any truck recorded in database.
+                            if driverReg.length 
+                            // iterating through truck./looping.
+                            each person in driverReg 
+                                option(value=` ${person.lastname}  ${person.firstname}`) #{person.lastname}
+                    |                     
+                    |         
+                    p|         
+                    p
+                      | Daily Wage:
+                      input#txt_wage(type='text', name='wage', value='5000.00')
+                    |                     
+                    |         
+                    p
+                      |Days worked in week:
+                      input#txt_hours(type='text', name='days', value='0.0')
+                      |  
+                      br
+                      br
+                      |         
+                      |         
+                      
+                                  
+                    p total Amount
+                      input#results(type='text',name='results',value='0.0')
+
+                    p
+                    button(value='calculate', onclick='calcSalary()') SUBMIT
+                    |                     
+                    |         
+                  script(type='text/javascript').
+                    function calcSalary() {
+                    var wage_element = document.getElementById('txt_wage');
+                    var wage = parseInt(wage_element.value);
+                    var hours_element = document.getElementById('txt_hours');
+                    var hours = parseInt(hours_element.value);
+                    var calculate = wage * hours;
+                    document.getElementById('results').value = calculate;
+                    }
+
+            script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js', integrity='sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0', crossorigin='anonymous')

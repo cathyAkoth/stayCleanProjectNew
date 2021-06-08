@@ -1,0 +1,93 @@
+extends layout
+block content         
+
+
+  title stay clean
+
+  link(rel='stylesheet', href='/css/pugLIST.css')
+
+  body
+
+
+    
+    .main-content
+      header
+        h2
+          .header-title
+            label(for='')
+              span.las.la-bars
+            |                 STAY CLEAN
+        |                 
+        
+      
+    .recent-grid
+      .Projects
+        .card
+          .card-header
+             a.btn.btn-warning(href='/request', role='button') 
+                  span.las.la-arrow-left
+                   | 
+             h3 TRUCK PAYMENT LIST
+                                        
+             form.example(action='/truckPayment')
+                      input(type='text', placeholder='Search.code.', truckCode='truckCode')
+                 
+                      button(type='submit')
+                        i.fa.fa-search
+                
+            
+             a.btn.btn-warning(href='/truckPayment/truckPayment', role='button') 
+                    span.las.la-users
+            
+               
+            
+              
+          |                   
+          .card-body
+
+          
+          table
+          table.table.table-hover
+            thead
+                    
+            
+      
+              tr
+                  th DATE OF SERVICE
+                  th TRUCK ALLOCATED
+                  //th SERVICE TYPE
+                  th ACTUAL AMOUNT 
+                  //th SERVICE TYPE
+                  th ACTUAL AMOUNT 
+                  //th SERVICE TYPE
+                  th ACTUAL AMOUNT
+                  //th SERVICE TYPE
+                  th ACTUAL AMOUNT 
+                  th 
+                  th 
+                  
+
+            tbody
+              if users.length
+              each user in users
+                  tr
+                      td #{user.date}
+                      td #{user.truckCode}
+                      //td #{user.service}
+                      td #{user.charge}
+                      //td #{user.service1}
+                      td #{user.charge1}
+                      //td #{user.service2}
+                      td #{user.charge2}
+                      //td #{user.service3}
+                      td #{user.charge3}
+                      
+                      
+                      td
+                            
+                      td
+                          form(method="post" action='/truckPayment/delete')
+                              input(type="hidden", placeholder="", name="id", value=user._id)
+                              button.btn.btn-success.btn-block(type="submit") Delete
+
+                    

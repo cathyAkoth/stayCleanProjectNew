@@ -1,0 +1,85 @@
+extends layout
+block content         
+
+
+  title driverPaymentList.
+  link(rel='stylesheet', href='/css/pugLIST.css')
+  
+  body
+
+
+    
+    .main-content
+      header
+        h2
+          .header-title
+            
+            |                 STAY CLEAN
+        |                 
+        
+      
+    .recent-grid
+      .Projects
+        .card
+          .card-header
+
+            a.btn.btn-warning(href='/request', role='button') 
+                  span.las.la-arrow-left
+                   |  
+            h3 CONDUCTOR PAYMENT LIST
+            |                         
+            form.example(action='/conductorPayment')
+                  input(type='text', placeholder='Search..', date='date')
+                  |   
+                  button(type='submit')
+                    i.fa.fa-search
+            
+            
+            button
+            
+              a.btn.btn-warning(href='/conductorPayment/conductorPayment', role='button') 
+                    span.las.la-users
+            
+              
+          |                   
+          .card-body
+
+          
+          table
+          table.table.table-hover
+            thead
+                    
+            
+      
+              tr
+                  th Date Of Payment
+                  th conductors' Name
+                  th Daily Wage
+                  th Days Worked
+                  th Total Amount
+                  th
+                  th 
+                   
+                  
+                  
+
+            tbody
+              if users.length
+              each user in users
+                  tr
+                      td #{user.date}
+                      td #{user.conductorName}
+                      td #{user.wage}
+                      td #{user.days}
+                      td #{user.results}
+                     
+                      
+                      
+                      td
+                              a(href='/conductorPayment/update/'+user._id)
+                                span.icon 
+                                  i.las.la-edit 
+                      td
+                          form(method="post" action='/conductorPayment/delete')
+                              input(type="hidden", placeholder="", name="id", value=user._id)
+                              button.btn.btn-success.btn-block(type="submit") Delete

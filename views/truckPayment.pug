@@ -1,0 +1,159 @@
+extends layout
+block content
+
+
+  script.
+      const service = document.getElementByID.service
+      const charge = document.getElementByID.charge
+      const payment = document.getElementByID.payment
+      const actualAmount = document.getElementByID.actualAmount
+      const actualAmountFunction = () = {
+     
+        
+
+  body
+    form.row.g-3(method='POST', action='/truckPayment/truckPayment', name='truckPayment')
+      .col-md-6
+        label.form-label(for='date') DATE FOR SERVICE
+         
+        input#date.form-control(type='date', name='date')
+       
+      .col-md-6
+        label.form-label(for='truckCode') TRUCK ALLOCATED
+     
+        select#truckCode.form-select( name='truckCode')
+          option() choose truck
+
+          if truck.length 
+          each trucks in truck
+            option(value='code Number') #{trucks.codeNumber}
+      .col-md-3
+        label.form-label(for='service') SERVICE TYPE
+         
+        input#service.form-control(name='service' value='sewage')
+          
+      |   
+      .col-md-3
+        label.form-label(for='charge') PRICE
+        |     
+        input#charge.form-control(name='charge')
+          
+      .col-md-3
+        label.form-label(for='paymentPlan') PAYMENT PLAN
+        |     
+        input#paymentPlan.form-control(name='paymentPlan' ,value='one time')
+          
+      |   
+      .col-md-3
+        label.form-label(for='actualAmount') ACTUAL AMOUNT PAID
+        |     
+        input#actualAmount.form-control(name='actualAmount',value='')
+          
+
+      .col-md-3
+        label.form-label(for='service1') SERVICE TYPE
+        |     
+        input#service1.form-control(name='service1',value='garbage')
+         
+      |   
+      .col-md-3
+        label.form-label(for='charge1') PRICE
+        |     
+        input#charge1.form-control(name='charge1')
+          
+      |   
+      .col-md-3
+        label.form-label(for='paymentPlan1') PAYMENT PLAN
+        |     
+        input#paymentPlan1.form-control(name='paymentPlan1', value='one time')
+          
+       
+      .col-md-3
+        label.form-label(for='actualAmount1') ACTUAL AMOUNT PAID
+        |     
+        input#actualAmount1.form-control(name='actualAmount1',value='')
+       
+      .col-md-3
+        label.form-label(for='service2') SERVICE TYPE
+        |     
+        input#service2.form-control(name='service2',value='sewage')
+          
+      .col-md-3
+        label.form-label(for='charge2') PRICE
+        |     
+        input#charge2.form-control(name='charge2')
+          
+      .col-md-3
+        label.form-label(for='paymentPlan2') PAYMENT PLAN
+        |     
+        input#paymentPlan2.form-control(name='paymentPlan2',value='subscription')
+          
+      .col-md-3
+        label.form-label(for='actualAmount2') ACTUAL AMOUNT PAID
+        |     
+        input#actualAmount2.form-select(name='actualAmount2')
+         
+
+      .col-md-3
+        label.form-label(for='service3') SERVICE TYPE
+        |     
+        input#service3.form-control(name='service3',value='garbage')
+          
+      |   
+      .col-md-3
+        label.form-label(for='charge3') PRICE
+        |     
+        input#charge3.form-control(name='charge3',value='',)
+         
+      |   
+      .col-md-3
+        label.form-label(for='paymentPlan3') PAYMENT PLAN
+        |     
+        input#paymentPlan3.form-control(name='paymentPlan3',value='subscription')
+          
+      .col-md-3
+        label.form-label(for='actualAmount3') ACTUAL AMOUNT PAID
+        |     
+        input#actualAmount3.form-control(name='actualAmount3',value='0.0')
+          
+      |   
+      .col-12
+         button(value='calculate', onclick='calcActual()') Calculate
+    
+    
+    script(type='text/javascript').
+    // Function to calculate the actual price.
+      function calcActual() {
+        // Calculating the actual amount paid when service is garbage and payment plan is subscription.
+      var price3_element = document.getElementById('charge3');
+      var price3 = parseInt(price3_element.value);   
+      var calculate = price3 - 20000.00;
+      document.getElementById('actualAmount3').value = calculate;
+      }
+    
+        // Calculating the actual amount paid when service is sewage and payment plan is subscription.
+      function calcActual() {
+      var price2_element = document.getElementById('charge2');
+      var price2 = parseInt(price2_element.value);   
+      var calculate = price2 - 160000.00;
+      document.getElementById('actualAmount2').value = calculate;
+      }
+
+        // Calculating the actual amount paid when service is garbage and payment plan is one time.
+      function calcActual() {
+      var price1_element = document.getElementById('charge1');
+      var price1 = parseInt(price1_element.value);   
+      var calculate = price1 - 0;
+      document.getElementById('actualAmount1').value = calculate;
+      }
+
+        // Calculating the actual amount paid when service is garbage and payment plan is subscription.
+      function calcActual() {
+      var price_element = document.getElementById('charge');
+      var price = parseInt(price_element.value);   
+      var calculate = price - 0;
+      document.getElementById('actualAmount').value = calculate;
+      }
+    
+    
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js', integrity='sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf', crossorigin='anonymous')

@@ -1,142 +1,154 @@
-doctype html
-doctype html
-html(lang='en')
-  head
-    meta(charset="UTF-8")
-    meta(name="viewpoint" content="=*width=device-width, initial-scale=1.0*")
-    meta(http-equiv="X-UA-Compatible" content="ie=edge")
-
-    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl', crossorigin='anonymous')
-    
-    title register truck drivers
+extends layout 
+block content
+    title customerRequest.
     style.
-      input[type=text], select {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      background-color:rgb(209, 214, 216);
-      }
-      input[type=time], select {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      background-color:rgb(209, 214, 216);
-      }
-      input[type=number], select {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      background-color:rgb(209, 214, 216);
-      }
-      input[type=date], select {
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      background-color:rgb(209, 214, 216);
-      }
-      H3{
-      text-align: center;
-      }
-      input[type=submit] {
-      width: 100%;
-      background-color: #4CAF50;
-      color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      }
-      input[type=submit]:hover {
-      background-color: #45a049;
-      }
-      div {
-      border-radius: 5px;
-      background-color: #f2f2f2;
-      padding: 20px;
-      max-width: 400px;
-      margin: 0 auto
-      }
-  body
-    h3 CUSTOMER SERVICE REQUEST FORM
-    div
-      form(action='#', name='customerRequestForm')
-        label(for='fname') First Name
-        |     
-        input#fname(type='text', name='firstname', placeholder="customer's First Name")
-        |     
-        label(for='lname') Last Name
-        |     
-        input#lname(type='text', name='lastname', placeholder="customer's First Name")
-        |     
-        label(for='lname') Other Names
-        |     
-        input#lname(type='text', name='lastname', placeholder="customer's Other Names")
-        |     
-        label(for='service') Service
-        |     
-        select#service(name='service')
-          option(value='subscription') Sewage
-          |       
-          option(value='one time') Garbage
-        |       
-        label(for='nin') NIN
-        |       
-        input#nin(type='text', name='nin', placeholder="Customer's Identification Number", *='')
-        |       
-        label(for='noTrucks') Number Of Trucks
-        |       
-        select#noTrucks(name='noTrucks')
-          option(value='none')
-          |  
-          |         
-          option(value='one') 1
-          |         
-          option(value='two') 2
-          |         
-          option(value='three') 3
-          |         
-          option(value='four') 4
-          |         
-          option(value='five') 5
-          |         
-          option(value='six') 6
-          |         
-          option(value='seven') 7
-        |     
-        label(for='D.O.R') Date for service:
-        |     
-        input(type='date', id='D.O.R', name='Date for service')
-        |     
-        label(for='appt') Select a time:
-        |     
-        input#appt(type='time', name='appt')
-        |     
-        label(for='phone') Phone Number:
-        |     
-        input#phone(type='text', placeholder="Customer's Phone Number ")
-        |     
-        |     
-        label(for='tor') Type of request
-        |     
-        select#tor(name='tor')
-          option(value='subscription') subscription
-          |       
-          option(value='one time') one time
-        input(type='submit', value='Submit')
+
+     
+    link(rel='stylesheet', href='/css/pugForm.css')
+
+    body
+    .main-content
+        header
+          h2
+            
+              .header-title
+                img#logoArea(src="/images/signage2.png")
+                label(for='')
+                  span.img(src="/images/signage2.png")
+                |                 STAY CLEAN
+      
+        .container-fluid
+        .row
+          .col-2
+            
+          
+          .col-8
+            .card 
+              h5 CUSTOMER REQUEST FORM
+              .card-body 
+                
+                  form.row.g-3(method='POST', action='/request/customerRequest', name='customerRequestForm')
+                        .col-md-6
+                          label.form-label(for='fname') First Name
+                          |                   
+                          input#fname.form-control(type='text', name='fname')
+                          p.fname_info.warnP                
+                        .col-md-6
+                          label.form-label(for='lname') Last Name
+                          |                   
+                          input#lname.form-control(type='lname', name='lname')
+                          p.lname_info.warnP           
+                        .col-12
+                          label.form-label(for='nin') Identification Number
+                          |                   
+                          input#nin.form-control(type='text', placeholder='', name='nin')
+                          p.nin_info.warnP            
+                        .col-12
+                          label.form-label(for='location') Customer Location
+                          |                   
+                          input#location.form-control(type='text', placeholder='', name='location')
+                          p.location_info.warnP
+                        |                 
+                        .col-12
+                          label.form-label(for='phone') TEL No.
+                          |                   
+                          input#phone.form-control(type='text', name="phone")
+                          p.phone_info.warnP
+                        |                 
+                        .col-md-4
+                          label.form-label(for='service') Type of Service
+                          |                   
+                          select#service(name='service') 
+                            option(value='') selectservice
+                            option(value='sewage') Sewage
+                             
+                            option(value='Garbage') Garbage
+
+                            option(value='Both') Both
+                            
+                            p.service_info.warnP
+
+                        .col-md-4
+                          label.form-label(for='noTruck') Trucks Needed
+                          |                   
+                          select#noTruck(name='noTruck')
+                            option(value='')
+                            |  
+                            |         
+                            option(value='one') 1
+                            |         
+                            option(value='two') 2
+                            |         
+                            option(value='three') 3
+                            |
+                            p.noTrucks_info.warnP                 
+                        .col-md-4
+                          label.form-label(for='tor') Service Plan
+                          |                   
+                          select#tor.form-select(name='tor')
+                            option(value='') choose a plan
+                            |  
+                            |         
+                            option(value='one time') one time
+                            |         
+                            option(value='subscription') Subscription
+                            p.tor_info.warnP|         
+                            
+                        .col-6
+                          label.form-label(for='dor') Service Date.
+                          |                   
+                          input#dor.form-control(value='',type='date', name="dor")
+                          p.dor_info.warnP
+
+                        .col-6
+                          label.form-label(for='appt') Appointment time.
+                          |                   
+                          input#appt.form-control(type='time', name="appt")
+                          p.appt_info.warnP
+                        .col-6
+                          label(for='truck') Allocate Truck 1:
+                          select#truck(name='truck')
+                            option() choose Truck 
+                              // if any truck recorded in database.
+                            if truck.length 
+                            // iterating through truck./looping.
+                            each trucks in truck 
+                                option(value=`Code Number: ${trucks.codeNumber} Reg Number: ${trucks.regNumber} Driver: ${trucks.driver}`) #{trucks.codeNumber}
+                            p.truck_info.warnP
+                        
+                        .col-6
+                          label(for='truck1') Allocate Truck 2:
+                          select#truck1(name='truck1')
+                            option() choose Truck 
+                              // if any truck recorded in database.
+                            if truck.length 
+                            // iterating through truck./looping.
+                            each trucks in truck 
+                                option(value=`Code Number: ${trucks.codeNumber} Reg Number: ${trucks.regNumber} Driver: ${trucks.driver}`) #{trucks.codeNumber}
+                        
+                        .col-4
+                          label.form-label(for='currentLoc') Current location.
+                          |                   
+                          input#currentLoc.form-control(type='text', name="currentLoc")
+                          p.currentLoc_info.warnP
+                        .col-4
+                          label.form-label(for='next') Next Destination.
+                          |                   
+                          input#next.form-control(type='text', name="next")
+                          p.next_info.warnP
+
+
+                        .col-4
+                          label.form-label(for='cond') Num of conductors 
+                          |                   
+                          input#cond.form-control(type='number', name="number")
+                          p.cond_info.warnP
+                        .col-12
+                          button.btn.btn-primary(type='submit') SAVE
+
+          .col-2
+                  script.
+                  script(src='/javascript/request.js')
+                  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js', integrity='sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf', crossorigin='anonymous')
+                      
+                      
