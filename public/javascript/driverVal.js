@@ -49,7 +49,7 @@ event.preventDefault();
 if (name1.value.length < min) {
 name1.focus();
 name1.style.border = '2px solid red';
-fname2.textContent = ' First name can not be less than 2 characters!';
+fname2.textContent =  "First name can not be less than 2 characters!";
 event.preventDefault();
 }else{
 if(name1.value.length>max){
