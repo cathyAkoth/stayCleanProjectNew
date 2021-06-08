@@ -140,12 +140,12 @@ password.style.border = '2px solid red';
 } else {
 if(password.value < min4){
 pass2.textContent = ' Pass word can not be less than 8 characters!';
-password.style.border = '2px solid red';
+password.style.border = "'2px solid red'";
   password.focus();
   event.preventDefault ();
   } else {
 if(password.value > max4){
-pass2.textContent =" ' password can not be more than 15 characters!'";
+pass2.textContent =' password can not be more than 15 characters!';
 password.style.border = '2px solid red';
   password.focus();
   event.preventDefault ();
